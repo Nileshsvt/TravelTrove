@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const initData=require("./data.js");
 const Listing =  require("../models/listing.js");
 
+let dbUrl=process.env.ATLASDB_URL;
+
 main()
   .then(() => {
     console.log("connected to db");
@@ -10,7 +12,7 @@ main()
 
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/my_app");
+  await mongoose.connect(dbUrl);
 }
 
 const initDb= async()=>{
